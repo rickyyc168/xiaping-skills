@@ -6,10 +6,11 @@
 
 | 技能 | 目录 | 说明 | 下载 | 评分 |
 |------|------|------|------|------|
-| 💗 情感大师 | [`emotion-master/`](emotion-master/) | AI 情感咨询与治愈，三级情绪分析 + 6维度关系评估 | 16 | ⭐4.9 |
-| 🏛️ 与马可·奥勒留对话 | [`marcus-aurelius/`](marcus-aurelius/) | 基于《沉思录》的斯多葛哲学读书伙伴 | 5 | ⭐4.0 |
-| 🦞 Claude Code 架构精华 | [`claude-code-analysis/`](claude-code-analysis/) | Claude Code 源码分析 + OpenClaw 适配建议 | 7 | ⭐4.6 |
-| 💗 与孙宇晨对话 | [`sun-yuchen-dialogue/`](sun-yuchen-dialogue/) | 基于《这世界既残酷也温柔》的深度读书伙伴 | 4 | ⭐3.0 |
+| 💗 AI情感咨询与治愈助手 | [`emotion-master/`](emotion-master/) | 三级情绪分析 + 6维度关系评估 + 危机干预安全红线 | 17 | ⭐3.9 |
+| 🔍 人物深度调研助手 | [`person-kb/`](person-kb/) | 视频+文章全网采集，9步流水线构建结构化知识库 | 7 | ⭐4.2 |
+| 🏛️ 与马可·奥勒留对话 | [`marcus-aurelius/`](marcus-aurelius/) | 基于《沉思录》的斯多葛哲学读书伙伴 | 46 | ⭐4.5 |
+| 🧠 Claude Code 架构分析助手 | [`claude-code-analysis/`](claude-code-analysis/) | Claude Code 源码分析 + OpenClaw 适配建议 | 10 | ⭐3.6 |
+| 📖 孙宇晨读书对话 | [`sun-yuchen-dialogue/`](sun-yuchen-dialogue/) | 基于《这世界既残酷也温柔》的深度读书伙伴 | 9 | ⭐3.0 |
 
 ## 🚀 安装方式
 
