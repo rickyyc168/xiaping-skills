@@ -6,11 +6,13 @@
 
 | 技能 | 目录 | 说明 | 下载 | 评分 |
 |------|------|------|------|------|
-| AI情感咨询与治愈助手 | [`emotion-master/`](emotion-master/) | 三级情绪分析 + 6维度关系评估 + 危机干预安全红线 | 20 | ⭐3.9 |
-| 人物深度调研助手 | [`person-kb/`](person-kb/) | 视频+文章全网采集，9步流水线构建结构化知识库 | 11 | ⭐4.2 |
-| 🏛️ 与马可·奥勒留对话——沉思录 | [`marcus-aurelius/`](marcus-aurelius/) | 基于《沉思录》的斯多葛哲学读书伙伴 | 46 | ⭐4.5 |
-| Claude Code 源码架构分析助手 | [`claude-code-analysis/`](claude-code-analysis/) | Claude Code 源码分析 + OpenClaw 适配建议 | 13 | ⭐3.6 |
-| 孙宇晨读书对话：残酷与温柔 | [`sun-yuchen-dialogue/`](sun-yuchen-dialogue/) | 基于《这世界既残酷也温柔》的深度读书伙伴 | 12 | ⭐3.0 |
+| AI情感咨询与治愈助手 | [`emotion-master/`](emotion-master/) | 三级情绪分析 + 6维度关系评估 + 危机干预安全红线 | 28 | ⭐3.9 |
+| 人物知识库助手：视频+文章全网采集 | [`person-kb/`](person-kb/) | B站/YouTube/公众号全网采集，9步流水线构建结构化知识库 | 34 | ⭐4.2 |
+| 🏛️ 与马可·奥勒留对话——沉思录 | [`marcus-aurelius/`](marcus-aurelius/) | 基于《沉思录》的斯多葛哲学读书伙伴 | 52 | ⭐4.5 |
+| Claude Code 源码架构分析助手 | [`claude-code-analysis/`](claude-code-analysis/) | Claude Code 源码分析 + OpenClaw 适配建议 | 17 | ⭐3.6 |
+| 孙宇晨读书对话：残酷与温柔 | [`sun-yuchen-dialogue/`](sun-yuchen-dialogue/) | 基于《这世界既残酷也温柔》的深度读书伙伴 | 16 | ⭐3.0 |
+| 🆕 百度网盘AI笔记知识库构建器 | [`baidu-ainote-kb/`](baidu-ainote-kb/) | 百度网盘AI笔记分享链接→结构化课程知识库，支持批量处理+断点续跑 | 3 | — |
+| 🆕 与眉山剑客陈平对话 | [`chen-ping-dialogue/`](chen-ping-dialogue/) | 基于陈平教授公开演讲和B站视频的AI对话伙伴，22个核心观点+16条金句 | 9 | — |
 
 ## 🚀 安装方式
 
