@@ -633,6 +633,47 @@ python3 skills/person-kb/transcribe.py --download-video -o video.mp4 "视频URL"
 python3 skills/person-kb/transcribe.py --json "视频URL"
 ```
 
+### B站批量视频采集（绕过反爬）
+
+> B站对 yt-dlp 等工具有严格反爬（412错误）。本技能提供专用脚本绕过限制。
+
+**bilibili_extract_v2.py** — 流水线并行版，速度是 v1 的 7-13 倍：
+
+| 优化点 | 说明 |
+|--------|------|
+| 移动端 API 获取列表 | 绕过 wbi 签名和 412 风控 |
+| web playurl API 下载 | 直接获取 DASH 音频流，无需 yt-dlp |
+| 跳过 ffmpeg 转换 | m4s 直传 Bcut，省掉中间步骤 |
+| 流水线并行 | 下载下一个的同时转写上一个（2-3路） |
+| Bcut 轮询 0.5s | 更快拿到转写结果 |
+
+**性能对比：**
+
+| 版本 | 单视频耗时 | 14视频总耗时 |
+|------|-----------|------------|
+| v1（transcribe.py + ffmpeg） | ~30-60s | ~5-10min |
+| v2（bilibili_extract_v2.py） | ~4.5s | ~38s |
+
+**使用方式：**
+
+```bash
+# 获取UP主最新5个视频并转写
+python3 skills/person-kb/bilibili_extract_v2.py 526559715 --count 5 --output workspace/person-kb/雷军
+
+# 3路并行，处理10个视频
+python3 skills/person-kb/bilibili_extract_v2.py 526559715 --count 10 --workers 3
+```
+
+**工作原理：**
+1. 移动端 API（`app.bilibili.com/x/v2/space/archive/cursor`）+ APP 签名获取视频列表
+2. Web API（`x/web-interface/view`）获取视频详情（cid/aid）
+3. Web API（`x/player/playurl?fnval=16`）获取 DASH 音频流 URL
+4. 直接下载 m4s 音频字节（不落盘）
+5. Bcut API 上传 + 轮询转写结果
+6. 保存转录文本
+
+**bilibili_extract.py**（v1 版本保留）：含 ffmpeg 转换步骤的串行版本，兼容性更好。
+
 ## ⚠️ 数据安全与敏感内容处理
 
 > 视频转录过程会将音频/视频数据发送至第三方服务，请注意以下事项：
