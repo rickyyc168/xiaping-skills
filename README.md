@@ -2,17 +2,20 @@
 
 面向 OpenClaw / Claude Code Agent 的精品技能合集，已上架 [虾评Skill](https://xiaping.coze.site) 平台。
 
-## 📦 技能列表
+## 📦 技能列表（共 10 个）
 
 | 技能 | 目录 | 说明 | 下载 | 评分 |
 |------|------|------|------|------|
-| AI情感咨询与治愈助手 | [`emotion-master/`](emotion-master/) | 三级情绪分析 + 6维度关系评估 + 危机干预安全红线 | 28 | ⭐3.9 |
-| 人物知识库助手：视频+文章全网采集 | [`person-kb/`](person-kb/) | B站/YouTube/公众号全网采集，9步流水线构建结构化知识库 | 34 | ⭐4.2 |
-| 🏛️ 与马可·奥勒留对话——沉思录 | [`marcus-aurelius/`](marcus-aurelius/) | 基于《沉思录》的斯多葛哲学读书伙伴 | 52 | ⭐4.5 |
-| Claude Code 源码架构分析助手 | [`claude-code-analysis/`](claude-code-analysis/) | Claude Code 源码分析 + OpenClaw 适配建议 | 17 | ⭐3.6 |
-| 孙宇晨读书对话：残酷与温柔 | [`sun-yuchen-dialogue/`](sun-yuchen-dialogue/) | 基于《这世界既残酷也温柔》的深度读书伙伴 | 16 | ⭐3.0 |
-| 🆕 百度网盘AI笔记知识库构建器 | [`baidu-ainote-kb/`](baidu-ainote-kb/) | 百度网盘AI笔记分享链接→结构化课程知识库，支持批量处理+断点续跑 | 3 | — |
-| 🆕 与眉山剑客陈平对话 | [`chen-ping-dialogue/`](chen-ping-dialogue/) | 基于陈平教授公开演讲和B站视频的AI对话伙伴，22个核心观点+16条金句 | 9 | — |
+| 🏛️ 与马可·奥勒留对话——沉思录 | [`marcus-aurelius/`](marcus-aurelius/) | 基于《沉思录》的斯多葛哲学读书伙伴，72条核心观点+40条金句 | 92 | ⭐4.5 |
+| 人物知识库助手：视频+文章全网采集 | [`person-kb/`](person-kb/) | B站/YouTube/抖音/知乎/微博全网采集，9步流水线构建结构化知识库 | 53 | ⭐4.2 |
+| AI情感咨询与治愈助手 | [`emotion-master/`](emotion-master/) | 6维情绪评估 + CBT认知行为疗法 + 危机干预安全红线 | 40 | ⭐4.2 |
+| Claude Code 源码架构分析助手 | [`claude-code-analysis/`](claude-code-analysis/) | Claude Code 六层架构分析 + OpenClaw 适配建议 | 21 | ⭐3.6 |
+| 孙宇晨读书对话：残酷与温柔 | [`sun-yuchen-dialogue/`](sun-yuchen-dialogue/) | 基于《这世界既残酷也温柔》的深度读书伙伴，65条核心观点 | 18 | ⭐3.0 |
+| 与眉山剑客陈平对话 | [`chen-ping-dialogue/`](chen-ping-dialogue/) | 基于陈平教授公开演讲和B站视频的AI对话伙伴，22个核心观点+16条金句 | 13 | ⭐4.5 |
+| PPT模板创作与设计系统 | [`ppt-template-creator/`](ppt-template-creator/) | 5种标准页面类型 + 5色主题 + 4种视觉风格，内置python-pptx工具脚本 | 10 | ⭐4.5 |
+| 跟着上海交大学教授学经济学 | [`economics/`](economics/) | 上海交大经济学30讲系统课程知识库，80+关键概念+50条金句 | 8 | ⭐4.1 |
+| 社保专家 | [`shebao/`](shebao/) | 五险一金政策速查与合规避坑指南，2025年最新司法解释解读 | 4 | ⭐5.0 |
+| 百度网盘AI笔记知识库构建器 | [`baidu-ainote-kb/`](baidu-ainote-kb/) | 百度网盘AI笔记分享链接→结构化课程知识库，支持批量处理+断点续跑 | 4 | — |
 
 ## 🚀 安装方式
 

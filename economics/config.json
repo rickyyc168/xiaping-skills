@@ -1,0 +1,7 @@
+{
+  "name": "economics-learning-skill",
+  "version": "1.0.0",
+  "description": "跟着上海交大教授学经济学 - 基于30讲系统课程的知识库对话伙伴",
+  "framework": "OpenClaw",
+  "triggers": ["经济学", "学经济", "经济学对话", "经原课程", "交大经济"]
+}

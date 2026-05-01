@@ -1,0 +1,37 @@
+{
+  "topic": "社保专家知识库",
+  "identity": "社会保险制度与政策",
+  "domain": "社会保障",
+  "profile_type": "policy_expert",
+  "started_at": "2026-04-16T15:41:00+08:00",
+  "steps": {
+    "disambiguate": "done",
+    "init_dir": "done",
+    "search_articles": "done",
+    "fetch_articles": "done",
+    "search_videos": "pending",
+    "process_videos": "pending",
+    "extract_quotes": "done",
+    "cross_validate": "done",
+    "build_opinions": "done",
+    "build_timeline": "done",
+    "generate_profile": "done"
+  },
+  "collected": {
+    "articles": [
+      "知乎_2025-08-25_社保新规定2025年9月1日文件.md",
+      "界面新闻_2025-09-01_9月1日社保新规澄清.md",
+      "中华网_2025-09-01_被误读的社保新规澄清.md",
+      "律科网_2025-02_社保新政策2025年最新规定.md"
+    ],
+    "videos": [],
+    "sources": [
+      "zhuanlan.zhihu.com/p/1943357754505926613",
+      "rst.hubei.gov.cn",
+      "mohrss.gov.cn",
+      "jiemian.com/article/13163796",
+      "news.china.com/socialgd/10000169/20250816/48726923",
+      "66laws.com/toutiao/18771"
+    ]
+  }
+}

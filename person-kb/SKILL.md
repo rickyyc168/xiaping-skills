@@ -174,8 +174,8 @@ workspace/person-kb/{人物名称}/
      mimo_web_search "{人物名称} 2025 OR 2026" 最新
 
   E. 社交媒体（按人物类型选做）
-     mimo_web_search site:zhihu.com "{人物名称}"                       # 知乎回答/专栏
-     mimo_web_search site:weibo.com "{人物名称}"                        # 微博发言
+     mimo_web_search site:zhihu.com "{人物名称}"                       # 知乎回答/专栏（→browser抓取）
+     mimo_web_search site:weibo.com "{人物名称}"                        # 微博发言（→搜索引擎中转+browser）
      mimo_web_search site:x.com OR site:twitter.com "{人物名称}"        # Twitter/X
      mimo_web_search site:linkedin.com/in "{人物名称}"                  # LinkedIn（职场人物）
      mimo_web_search "{人物名称}" site:mp.weixin.qq.com                 # 微信公众号文章
@@ -216,6 +216,69 @@ for each search_result:
 {来源域名}_{YYYY-MM-DD}_{文章标题前15字}.md
 例：36kr_2026-01-15_雷军谈小米汽车的三个.md
 ```
+
+**反爬网站处理（知乎/微博等）：**
+
+> `web_fetch` 和 `curl` 无法绕过知乎/微博的 JS 反爬验证。必须使用浏览器工具 (`browser`) 直接加载页面。
+
+**知乎 (zhuanlan.zhihu.com / zhihu.com)：**
+
+知乎使用 `zse-ck` JavaScript 挑战验证，纯 HTTP 请求一律返回 403。解决方案：
+
+```
+步骤1：用 browser 打开页面
+  browser(action="open", target="host", url="https://zhuanlan.zhihu.com/p/xxxx")
+  → 等待页面加载（JS 执行完毕）
+
+步骤2：用 snapshot 获取内容
+  browser(action="snapshot", targetId="<上一步返回的targetId>", compact=true)
+  → 获取完整的文章文本
+
+步骤3：提取文章内容
+  从 snapshot 输出中提取 article 区域的 heading + paragraph 内容
+  → 保存为 Markdown 文件
+
+步骤4：关闭标签页（避免堆积）
+  browser(action="close", targetId="<targetId>")
+```
+
+**注意事项：**
+- 知乎专栏文章（zhuanlan.zhihu.com）未登录时可读取全文 ✅
+- 知乎问答页面（zhihu.com/question）未登录时可读取已加载的回答 ✅
+- 知乎回答详情页（zhihu.com/answer）可能需要登录 ⚠️
+- 需要 `target="host"`，sandbox 浏览器不可用
+
+**微博 (weibo.com)：**
+
+微博同样使用 JS 渲染 + 登录拦截。解决方案：
+
+```
+步骤1：用 browser 打开用户主页或微博详情
+  browser(action="open", target="host", url="https://weibo.com/u/<uid>")
+
+步骤2：snapshot 获取内容
+  → 未登录时可获取：用户信息、粉丝数、简介
+  → 微博列表区域会提示"请登录后使用"
+  → 单条微博（如通过搜索获取的链接）可能部分内容可见
+
+步骤3：关闭标签页
+```
+
+**微博限制与策略：**
+- 未登录状态下：用户主页信息可见，具体微博内容受限 ⚠️
+- **推荐方案：搜索引擎中转** — `mimo_web_search site:weibo.com "{关键词}"` 直接获取摘要，通常够用
+- 需要全文时：用 `browser` 打开搜索到的具体帖子 URL，未登录也可读取帖子内容 ✅
+- 微博列表（用户所有微博）需登录，但单条帖子链接可直接访问
+
+**通用反爬策略总结：**
+
+| 平台 | web_fetch | 浏览器(browser) | 未登录限制 |
+|------|:---------:|:---------------:|-----------|
+| 知乎专栏 | ❌ 403 | ✅ 可读全文 | 基本无限制 |
+| 知乎问答 | ❌ 403 | ✅ 可读回答 | 回答数量有限 |
+| 微博用户页 | ❌ 403 | ⚠️ 部分可见 | 微博列表需登录 |
+| 微博单条 | ❌ 403 | ✅ 可读内容 | 列表需登录，单条可读 |
+| 微信公众号 | ❌ | ⚠️ 不稳定 | 有时可读 |
 
 ---
 
@@ -603,7 +666,8 @@ python3 skills/person-kb/transcribe.py --screenshot --local video.mp4
 | 工具 | 用途 | 模式 |
 |------|------|------|
 | mimo_web_search | 搜索文章和视频 | ⚡ 轻量 ✅ 完整 |
-| web_fetch | 抓取文章全文 | ⚡ 轻量 ✅ 完整 |
+| web_fetch | 抓取文章全文（普通网站） | ⚡ 轻量 ✅ 完整 |
+| **browser** | **抓取反爬网站（知乎/微博）** | **host 浏览器** |
 | **transcribe.py** | **视频转写+截图 CLI** | **⚡ 轻量 ✅ 完整** |
 | yt-dlp | 音频/视频下载+字幕 | ⚡ 轻量 ✅ 完整 |
 | ffmpeg | 音频转码+视频截图 | ⚡ 轻量 ✅ 完整 |
